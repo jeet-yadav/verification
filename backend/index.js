@@ -1,5 +1,6 @@
 import experss from "express";
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 
 import { connectDB } from "./db/connectDB.js";
 import authRoutes from "./routes/auth.route.js";
@@ -10,6 +11,7 @@ const app = experss();
 const PORT = process.env.PORT || 3000;
 
 app.use(experss.json());
+app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);
 
